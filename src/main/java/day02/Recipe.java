@@ -21,7 +21,7 @@ public class Recipe {
 
     public void addIngredient(String ingredient, String... more) {
         this.ingredient.add(ingredient);
-        Collections.addAll(this.ingredient, ingredient);
+        Collections.addAll(this.ingredient, more);
     }
 //        if (ingredient.isBlank()) {
 //            System.out.println("Egyet kötelező hozzáadni.");
@@ -40,5 +40,9 @@ public class Recipe {
 
     public String getDescription() {
         return description;
+    }
+
+    public boolean equals(Recipe other) {
+        return recipeName.equals(other.recipeName);
     }
 }

@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class RecipeTest {
 
@@ -14,10 +13,10 @@ class RecipeTest {
 
 
     void testCreate() {
+        assertNotNull(recipe.getDescription());
         assertNull(recipeTwo.getDescription());
-        assertNull(recipeTwo.getIngredient());
 
-        assertEquals(2, recipe.getIngredient().size());
+        assertEquals(0, recipe.getIngredient().size());
         assertEquals(0, recipeTwo.getIngredient().size());
         assertEquals("Rántottharcsás palancsinta", recipe.getRecipeName());
         assertEquals("Érdekes étel", recipe.getDescription());
@@ -28,7 +27,7 @@ class RecipeTest {
         recipe.addIngredient("Tejföl");
         recipe.addIngredient("Palacsinta", "harcsa", "kenyér");
 
-        assertEquals(3, recipe.getIngredient().size());
-        assertEquals(List.of("Palacsinta", "harcsa", "kenyér"), recipe.getIngredient());
+        assertEquals(4, recipe.getIngredient().size());
+        assertEquals(List.of("Tejföl", "Palacsinta", "harcsa", "kenyér"), recipe.getIngredient());
     }
 }
