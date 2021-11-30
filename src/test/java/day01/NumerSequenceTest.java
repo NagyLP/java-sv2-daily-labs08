@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NumerSequenceTest {
 
-NumerSequence ns = new NumerSequence(55, 1, 100);
+    NumerSequence ns = new NumerSequence(55, 1, 100);
 
     @Test
     void testCreate() {
@@ -18,7 +18,6 @@ NumerSequence ns = new NumerSequence(55, 1, 100);
         assertEquals(0, nsTwo.getNumber().size());
         NumerSequence nsThree = new NumerSequence(Arrays.asList(1, 2, 3, 4, 5));
         assertEquals(5, nsThree.getNumber().size());
-
     }
 
     @Test
