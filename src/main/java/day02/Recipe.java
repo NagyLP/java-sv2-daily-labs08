@@ -1,11 +1,13 @@
 package day02;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Recipe {
 
     private String recipeName;
-    private List<String> ingredient;
+    private List<String> ingredient = new ArrayList<>();
     private String description;
 
     public Recipe(String recipeName) {
@@ -17,13 +19,16 @@ public class Recipe {
         this.description = description;
     }
 
-    public void addIngredient(String ingredient) {
-        if (ingredient.isBlank()) {
-            System.out.println("Egyet kötelező hozzáadni.");
-        } else {
-            this.ingredient.add(ingredient);
-        }
+    public void addIngredient(String ingredient, String... more) {
+        this.ingredient.add(ingredient);
+        Collections.addAll(this.ingredient, ingredient);
     }
+//        if (ingredient.isBlank()) {
+//            System.out.println("Egyet kötelező hozzáadni.");
+//        } else {
+//            this.ingredient.add(ingredient);
+//        }
+//    }
 
     public String getRecipeName() {
         return recipeName;

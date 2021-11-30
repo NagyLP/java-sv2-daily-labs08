@@ -1,33 +1,34 @@
 package day02;
 
-import day01.NumerSequence;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class RecipeTest {
 
     Recipe recipe = new Recipe("Rántottharcsás palancsinta", "Érdekes étel");
-    Recipe recipeTwo = new Recipe("Rántottharcsás palancsinta");
+    Recipe recipeTwo = new Recipe("Rántottharcsás palancsinta 2");
 
 
     void testCreate() {
+        assertNull(recipeTwo.getDescription());
+        assertNull(recipeTwo.getIngredient());
+
         assertEquals(2, recipe.getIngredient().size());
         assertEquals(0, recipeTwo.getIngredient().size());
-        NumerSequence nsThree = new NumerSequence(Arrays.asList(1, 2, 3, 4, 5));
-        assertEquals(5, nsThree.getNumber().size());
+        assertEquals("Rántottharcsás palancsinta", recipe.getRecipeName());
+        assertEquals("Érdekes étel", recipe.getDescription());
     }
 
     @Test
     void testAddIngredient() {
-recipe.addIngredient("Tejföl");
-recipe.addIngredient("Palacsinta");
+        recipe.addIngredient("Tejföl");
+        recipe.addIngredient("Palacsinta", "harcsa", "kenyér");
 
-assertEquals();
-
+        assertEquals(3, recipe.getIngredient().size());
+        assertEquals(List.of("Palacsinta", "harcsa", "kenyér"), recipe.getIngredient());
     }
-
-
 }
