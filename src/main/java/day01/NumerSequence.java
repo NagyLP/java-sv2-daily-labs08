@@ -12,6 +12,12 @@ public class NumerSequence {
         this.number = number;
     }
 
+    public NumerSequence(int a, int b) {
+    }
+
+//    public NumerSequence(String a, int b) {
+//    }
+
     public NumerSequence(int count, int minValue, int maxValue) {
         Random random = new Random();
         for (int i = 0; i < count; i++) {
@@ -19,11 +25,13 @@ public class NumerSequence {
         }
     }
 
+    public List<Integer> getNumber() {
+        return number;
+    }
+
     public List<Integer> closeAvarage(int value) {
         List<Integer> result = new ArrayList<>();
-
         double avg = calculateAvg();
-
         for (int act : number) {
             if (Math.abs(act - avg) <= value + 0.00000001d) {
                 result.add(act);
@@ -37,17 +45,6 @@ public class NumerSequence {
         for (int act : number) {
             sum += act;
         }
-        return sum / number.size();
-    }
-
-
-    public NumerSequence(int a, String b) {
-    }
-
-    public NumerSequence(String a, int b) {
-    }
-
-    public List<Integer> getNumber() {
-        return number;
+        return (double) sum / number.size();
     }
 }
