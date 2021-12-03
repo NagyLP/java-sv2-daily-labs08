@@ -10,8 +10,8 @@ public class Weather {
 
     public static void main(String[] args) {
         Weather weather = new Weather();
-        System.out.printf(String.valueOf(weather.findSmallestTemperatureSpread("src/main/resources/weather.dat")));
-        System.out.printf(weather.findSmallestDifference("src/main/resources/football.dat"));
+        System.out.println(String.valueOf(weather.findSmallestTemperatureSpread("src/main/resources/weather.dat")));
+        System.out.println(weather.findSmallestDifference("src/main/resources/football.dat"));
     }
 
     public String findSmallestDifference(String filename) {
@@ -44,7 +44,7 @@ public class Weather {
 
     public int findSmallestTemperatureSpread(String filename) {
         try {
-            List<String> lines = Files.readAllLines(Paths.get("src/main/resources/weather.dat" + filename));
+            List<String> lines = Files.readAllLines(Paths.get(filename));
 
             int minDiff = 1_000;
             int minDay = 0;
