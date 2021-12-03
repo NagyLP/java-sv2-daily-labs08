@@ -8,7 +8,12 @@ import java.util.List;
 
 public class Weather {
 
-        public String findSmallestDifference(String filename) {
+    public static void main(String[] args) {
+        Weather weather = new Weather();
+        System.out.printf(weather.findSmallestDifference("src/main/resources/football.dat"));
+    }
+
+    public String findSmallestDifference(String filename) {
 
         List<String> lines = new ArrayList<>();
         String team = null;
@@ -23,14 +28,16 @@ public class Weather {
         }
 
         for (int i = 1; i < lines.size(); i++) {
-            fGoal = Integer.parseInt(lines.get(i).substring(42, 45).trim());
-            aGoal = Integer.parseInt(lines.get(i).substring(49, 52).trim());
-            if (fGoal - aGoal < minDiff) {
-                minDiff = fGoal - aGoal;
-                team = lines.get(i).substring(7, 22).trim();
+            if (i != 18) {
+                fGoal = Integer.parseInt(lines.get(i).substring(42, 45).trim());
+                aGoal = Integer.parseInt(lines.get(i).substring(49, 52).trim());
+                if (Math.abs(aGoal - fGoal) < minDiff) {
+                    minDiff = Math.abs(aGoal - fGoal);
+                    team = lines.get(i).substring(7, 22).trim();
                 }
             }
-            return team;
+        }
+        return team;
     }
 
     public int findSmallestTemperatureSpread(String filename) {
