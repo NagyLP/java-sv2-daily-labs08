@@ -31,6 +31,7 @@ public class Weather {
             if (i != 18) {
                 fGoal = Integer.parseInt(lines.get(i).substring(42, 45).trim());
                 aGoal = Integer.parseInt(lines.get(i).substring(49, 52).trim());
+
                 if (Math.abs(aGoal - fGoal) < minDiff) {
                     minDiff = Math.abs(aGoal - fGoal);
                     team = lines.get(i).substring(7, 22).trim();
