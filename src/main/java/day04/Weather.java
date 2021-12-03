@@ -10,6 +10,7 @@ public class Weather {
 
     public static void main(String[] args) {
         Weather weather = new Weather();
+        System.out.printf(String.valueOf(weather.findSmallestTemperatureSpread("src/main/resources/weather.dat")));
         System.out.printf(weather.findSmallestDifference("src/main/resources/football.dat"));
     }
 
