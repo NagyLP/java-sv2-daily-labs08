@@ -16,9 +16,9 @@ class RecipeTest {
         assertNotNull(recipe.getDescription());
         assertNull(recipeTwo.getDescription());
 
-        assertEquals(0, recipe.getIngredient().size());
-        assertEquals(0, recipeTwo.getIngredient().size());
-        assertEquals("Rántottharcsás palancsinta", recipe.getRecipeName());
+        assertEquals(0, recipe.getIngredients().size());
+        assertEquals(0, recipeTwo.getIngredients().size());
+        assertEquals("Rántottharcsás palancsinta", recipe.getName());
         assertEquals("Érdekes étel", recipe.getDescription());
     }
 
@@ -27,7 +27,7 @@ class RecipeTest {
         recipe.addIngredient("Tejföl");
         recipe.addIngredient("Palacsinta", "harcsa", "kenyér");
 
-        assertEquals(4, recipe.getIngredient().size());
-        assertEquals(List.of("Tejföl", "Palacsinta", "harcsa", "kenyér"), recipe.getIngredient());
+        assertEquals(4, recipe.getIngredients().size());
+        assertEquals(List.of("Tejföl", "Palacsinta", "harcsa", "kenyér"), recipe.getIngredients());
     }
 }

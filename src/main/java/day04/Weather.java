@@ -10,7 +10,7 @@ public class Weather {
 
     public static void main(String[] args) {
         Weather weather = new Weather();
-        System.out.println(String.valueOf(weather.findSmallestTemperatureSpread("src/main/resources/weather.dat")));
+        System.out.println(String.valueOf(weather.findSmallestTemperatureSpread("src/main/resources/football.dat")));
         System.out.println(weather.findSmallestDifference("src/main/resources/football.dat"));
     }
 
@@ -50,14 +50,16 @@ public class Weather {
             int minDay = 0;
 
             for (int i = 2; i < lines.size() - 1; i++) {
-                int day = Integer.parseInt(lines.get(i).substring(2, 4).trim());
-                int dayMax = Integer.parseInt(lines.get(i).substring(6, 8).trim());
-                int dayMin = Integer.parseInt(lines.get(i).substring(12, 14).trim());
+                if (!Character.isWhitespace(i)) {
+                    int day = Integer.parseInt(lines.get(i).substring(2, 4).trim());
+                    int dayMax = Integer.parseInt(lines.get(i).substring(6, 8).trim());
+                    int dayMin = Integer.parseInt(lines.get(i).substring(12, 14).trim());
 
-                int spreed = dayMax - dayMin;
-                if (minDiff > spreed) {
-                    minDiff = spreed;
-                    minDay = day;
+                    int spreed = dayMax - dayMin;
+                    if (minDiff > spreed) {
+                        minDiff = spreed;
+                        minDay = day;
+                    }
                 }
             }
             return minDay;
